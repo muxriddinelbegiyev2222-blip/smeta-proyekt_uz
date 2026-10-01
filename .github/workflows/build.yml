@@ -1,0 +1,31 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Repozitoriyni yuklash
+        uses: actions/checkout@v4
+
+      - name: Node.js o'rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Kutubxonalarni o'rnatish
+        run: npm install
+
+      - name: EXE dasturni yig'ish
+        run: npm run build
+
+      - name: EXE faylni yuklab olish uchun saqlash
+        uses: actions/upload-artifact@v4
+        with:
+          name: ARX-SMETA-Windows
+          path: dist/*.exe
