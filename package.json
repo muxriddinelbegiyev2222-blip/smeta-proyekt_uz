@@ -1,0 +1,29 @@
+{
+  "name": "arx-smeta",
+  "version": "1.0.0",
+  "description": "Professional Uy Qurilishi Smetasi Dasturi",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "uz.arxsmeta.app",
+    "productName": "ARX-SMETA",
+    "artifactName": "ARX-SMETA.exe",
+    "win": {
+      "target": "portable"
+    },
+    "files": [
+      "index.html",
+      "prices.js",
+      "calc_engine.js",
+      "app.js",
+      "main.js"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
